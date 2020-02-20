@@ -1,16 +1,17 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
+import axios from 'axios';
 
 class AddNewStudent extends Component {
   state = {
-    name: "",
-    startingCohort: ""
+    name: '',
+    startingCohort: ''
   };
   render() {
     return (
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <h2>Add new student:</h2>
         <label>
-          Name:{" "}
+          Name:{' '}
           <input
             type="text"
             required
@@ -20,9 +21,9 @@ class AddNewStudent extends Component {
           />
         </label>
         <label>
-          Starting Cohort:{" "}
+          Starting Cohort:{' '}
           <input
-            type="text"
+            type="number"
             required
             onChange={this.handleChange}
             value={this.state.startingCohort}
@@ -35,11 +36,23 @@ class AddNewStudent extends Component {
   }
 
   handleChange = event => {
-    console.log(event.target.name, "event");
-    console.log(event.target.value);
-    this.setState({ [event.target.name]: event.target.value }, () => {
-      console.log(this.state.name, this.state.startingCohort, "***");
-    });
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
+  handleSubmit = event => {
+    const { name, startingCohort } = this.state;
+    event.preventDefault();
+    axios
+      .post('http://nc-student-tracker.herokuapp.com/api/students', {
+        name: name,
+        startingCohort: startingCohort
+      })
+      .then(({ data }) => {
+        console.log(data.student);
+        this.props.addStudent(data.student);
+        this.setState({ name: '', startingCohort: '' });
+      })
+      .catch(console.log);
   };
 }
 
