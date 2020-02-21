@@ -1,7 +1,8 @@
-import React, { Component } from "react";
-import axios from "axios";
-import BlockHistory from "./BlockHistory";
-import createBlockHistoryObject from "../__test__/utils";
+import React, { Component } from 'react';
+import axios from 'axios';
+import BlockHistory from './BlockHistory';
+import createBlockHistoryObject from '../__test__/utils';
+import ToggleContent from './ToggleContent';
 
 class StudentById extends Component {
   state = {
@@ -11,7 +12,7 @@ class StudentById extends Component {
   };
   render() {
     const { student, isLoading } = this.state;
-    // console.log(student);
+
     return (
       <main>
         {isLoading ? (
@@ -22,16 +23,16 @@ class StudentById extends Component {
             <h2>Name: {student.name}</h2>
             <h3>Starting Cohort: {student.startingCohort}</h3>
             <h3>
-              Block:{" "}
+              Block:{' '}
               {student.blockHistory[student.blockHistory.length - 1].name}
             </h3>
-            <button>Show/Hide Block History</button>
-            <h4>Block History:</h4>
-            <BlockHistory
-              createBlockHistoryObject={createBlockHistoryObject(
-                student.blockHistory
-              )}
-            />
+            <ToggleContent>
+              {/* <BlockHistory
+                createBlockHistoryObject={createBlockHistoryObject(
+                  student.blockHistory
+                )}
+              /> */}
+            </ToggleContent>
           </div>
         )}
       </main>
