@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const BlockHistory = props => {
   const { createBlockHistoryObject } = props;
@@ -14,12 +14,14 @@ const BlockHistory = props => {
         </thead>
         {Object.keys(createBlockHistoryObject).map(key => {
           return (
-            <tbody key={key}>
-              <tr key={key}>
-                <td key={key}>{key} </td>
-                <td> {createBlockHistoryObject[key]} </td>
-              </tr>
-            </tbody>
+            key !== "Graduated" && (
+              <tbody key={key}>
+                <tr key={key}>
+                  <td key={key}>{key} </td>
+                  <td> {createBlockHistoryObject[key]} </td>
+                </tr>
+              </tbody>
+            )
           );
         })}
       </table>
