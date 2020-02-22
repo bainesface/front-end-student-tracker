@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 class ToggleContent extends Component {
   state = {
@@ -8,21 +8,18 @@ class ToggleContent extends Component {
   render() {
     return (
       <div>
-        <button onClick={this.toggleVisibility}>Show Block History</button>
+        <button className="button" onClick={this.toggleVisibility}>
+          Show Block History
+        </button>
         {this.state.isContentDisplayed && <div>{this.props.children}</div>}
       </div>
     );
   }
 
   toggleVisibility = event => {
-    this.setState(
-      currentState => {
-        return { isContentDisplayed: !currentState.isContentDisplayed };
-      },
-      () => {
-        console.log(this.state);
-      }
-    );
+    this.setState(currentState => {
+      return { isContentDisplayed: !currentState.isContentDisplayed };
+    });
   };
 }
 

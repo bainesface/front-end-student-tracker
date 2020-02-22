@@ -1,9 +1,8 @@
-import React, { Component } from "react";
-import axios from "axios";
-import BlockHistory from "./BlockHistory";
-import createBlockHistoryObject from "../__test__/utils";
-import ToggleContent from "./ToggleContent";
-// import DeleteStudentById from "./DeleteStudentById";
+import React, { Component } from 'react';
+import axios from 'axios';
+import BlockHistory from './BlockHistory';
+import createBlockHistoryObject from '../__test__/utils';
+import ToggleContent from './ToggleContent';
 
 class StudentById extends Component {
   state = {
@@ -25,10 +24,11 @@ class StudentById extends Component {
             <h3>Student ID: {student._id}</h3>
             <h3>Starting Cohort: {student.startingCohort}</h3>
             <h3>
-              Block:{" "}
+              Block:{' '}
               {student.blockHistory[student.blockHistory.length - 1].name}
             </h3>
             <button
+              className="button"
               onClick={() => {
                 this.deleteStudent(student._id);
               }}
@@ -66,7 +66,7 @@ class StudentById extends Component {
           return {
             student: {
               ...previousState.student,
-              name: "student has been deleted"
+              name: 'student has been deleted'
             }
           };
         });

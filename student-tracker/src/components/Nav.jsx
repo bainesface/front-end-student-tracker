@@ -1,11 +1,11 @@
-import React from "react";
-import { Link } from "@reach/router";
+import React from 'react';
+import { Link } from '@reach/router';
 
 const Nav = () => {
   return (
-    <nav>
+    <nav className="nav">
       <Link to="/">Home </Link>
-      <Link to="/students">All Students</Link>
+      <Link to="/students">Students</Link>
     </nav>
   );
 };

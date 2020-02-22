@@ -14,14 +14,14 @@
 }
 
 .App-header {
-  background-color: maroon;
+  background-color: #ba1f31;
   min-height: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #fff;
 }
 
 .App-link {
@@ -49,11 +49,137 @@ table {
 
 td,
 th {
-  border: 1px solid #dddddd;
+  border: 1px solid #fff;
   text-align: center;
   padding: 8px;
 }
 
 tr:nth-child(even) {
-  background-color: #dddddd;
+  background-color: #fff;
+}
+
+.nav {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #333;
+}
+
+.studentList {
+  padding: 1em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 0;
+}
+
+.studentList > li {
+  display: grid;
+  width: 12em;
+  height: 50px;
+  border: 1px solid #ba1f31;
+  border-radius: 10px;
+  background-color: #ba1f31;
+  margin-bottom: 1em;
+  align-items: center;
+  color: #fff;
+  margin-top: 0;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+a:-webkit-any-link {
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.currentStudentsHeader {
+  margin: 0;
+}
+
+.clickForDetails {
+  font-size: 12px;
+  margin: 0;
+}
+
+.dropdown {
+  background-color: #ededed;
+  padding: 1em;
+  /* border: 1.5px solid #333; */
+  padding: 0.5em;
+  border-radius: 10px;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 1em;
+}
+
+.filterStudents {
+  font-size: 15px;
+}
+
+.dropdownOptions {
+  color: #fff;
+}
+
+.addStudentForm {
+  background-color: #ededed;
+  padding: 1em;
+  /* border: 1.4px solid #333; */
+  padding: 0.5em;
+  border-radius: 10px;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 1em;
+  margin-bottom: 2em;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 2fr 1fr;
+  grid-template-areas:
+    'header header header header'
+    'nameLabel nameLabel cohortLabel cohortLabel'
+    '. button button .';
+}
+
+.addStudentHeader {
+  font-size: 20px;
+  margin: 0;
+  padding-bottom: 0.2em;
+  grid-area: header;
+}
+
+.addNameLabel {
+  grid-area: nameLabel;
+  font-size: 15px;
+  margin: 0;
+  padding-bottom: 0.2em;
+  justify-content: stretch;
+  align-self: center;
+}
+
+.addNameLabel > input {
+  width: 50%;
+  height: 20px;
+}
+
+.addCohortLabel {
+  grid-area: cohortLabel;
+  font-size: 15px;
+  margin: 0;
+  padding-bottom: 0.2em;
+  align-self: center;
+}
+
+.addCohortLabel > input {
+  width: 50%;
+  height: 20px;
+}
+
+.button {
+  background-color: #333;
+  border-radius: 10px;
+  font-size: 15px;
+  color: #fff;
+  grid-area: button;
 }

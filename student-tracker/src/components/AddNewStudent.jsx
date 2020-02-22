@@ -8,11 +8,12 @@ class AddNewStudent extends Component {
   };
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <h2>Add new student:</h2>
-        <label>
+      <form onSubmit={this.handleSubmit} className="addStudentForm">
+        <h2 className="addStudentHeader">Add new student</h2>
+        <label className="addNameLabel">
           Name:{' '}
           <input
+            className="addNameInput"
             type="text"
             required
             onChange={this.handleChange}
@@ -20,9 +21,10 @@ class AddNewStudent extends Component {
             name="name"
           />
         </label>
-        <label>
-          Starting Cohort:{' '}
+        <label className="addCohortLabel">
+          Cohort:{' '}
           <input
+            className="addCohortInput"
             type="number"
             required
             onChange={this.handleChange}
@@ -30,7 +32,7 @@ class AddNewStudent extends Component {
             name="startingCohort"
           />
         </label>
-        <button>Add student</button>
+        <button className="button">Add student</button>
       </form>
     );
   }
